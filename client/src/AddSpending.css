@@ -1,0 +1,40 @@
+/* Add Spending Form Container */
+.add-spending-form-container {
+    margin-top: 80px;
+}
+
+.form-group {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.form-control {
+    margin-right: 0px;
+    width: 20%;
+}
+
+/* Amount of spending added on form */
+.add-spending-amount {
+    margin-top: 15px;
+}
+
+/* Button to add more items */
+.add-more-items-btn {
+    margin-left: 250px;
+    margin-top: 10px;
+}
+
+/* Button to add a category */
+.add-category-btn {
+    display: block;
+    padding-right: 17px;
+    margin-left: 250px;
+    margin-top: 15px;
+}
+
+/* Button to submit add new spending form*/
+.submit-new-spending-btn {
+    margin-left: -60px;
+    margin-top: 20px;
+}
+
