@@ -47,23 +47,25 @@ class NavigationBar extends React.Component {
                             <NavItem>
                                 <NavLink href="/">Total Budget</NavLink>
                             </NavItem>
+                        </Nav>
+                        <Nav className="ml-auto" navbar>
                             <UncontrolledDropdown nav inNavbar>
-                                <DropdownToggle nav caret>
-                                    Options
-                                </DropdownToggle>
-                                <DropdownMenu right>
-                                    <DropdownItem>
-                                        Spending History
-                                    </DropdownItem>
-                                    <DropdownItem>
-                                        Budget Summary
-                                    </DropdownItem>
-                                    <DropdownItem divider />
-                                    <DropdownItem>
-                                        Sign Out
-                                    </DropdownItem>
-                                </DropdownMenu>
-                            </UncontrolledDropdown>
+                                    <DropdownToggle nav caret>
+                                        Options
+                                    </DropdownToggle>
+                                    <DropdownMenu right>
+                                        <DropdownItem>
+                                            Spending History
+                                        </DropdownItem>
+                                        <DropdownItem>
+                                            Budget Summary
+                                        </DropdownItem>
+                                        <DropdownItem divider />
+                                        <DropdownItem>
+                                            Sign Out
+                                        </DropdownItem>
+                                    </DropdownMenu>
+                                </UncontrolledDropdown>
                         </Nav>
                         </Collapse>
                     </Navbar>
