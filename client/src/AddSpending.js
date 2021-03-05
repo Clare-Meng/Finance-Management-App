@@ -38,11 +38,7 @@ class AddSpending extends React.Component {
                     </FormGroup>
                     <Button className="add-more-items-btn" color="primary">Add more Items</Button>
                     <Button className="add-category-btn" color="primary">Add a Category</Button>
-                    <FormGroup check row>
-                        <Col sm={{ size: 10, offset: 2 }}>
-                            <Button className="submit-new-spending-btn">Submit New Spending</Button>
-                        </Col>
-                    </FormGroup>
+                    <Button className="submit-new-spending-btn">Submit New Spending</Button>
                 </Form>
             </>
         );
