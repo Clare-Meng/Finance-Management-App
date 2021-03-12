@@ -12,6 +12,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AddSpending.css';
 
+import SpendingEntry from './SpendingEntry';
+
 class AddSpending extends React.Component {
     render() {
         return (
@@ -40,6 +42,7 @@ class AddSpending extends React.Component {
                     <Button className="add-category-btn" color="primary">Add a Category</Button>
                     <Button className="submit-new-spending-btn">Submit New Spending</Button>
                 </Form>
+                <SpendingEntry />
             </>
         );
     }
