@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getSpendingEntries } from '../actions/spendingEntryActions';
 
-import { 
-    Button
-} from 'reactstrap';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+
+import '../styling/SpendingEntry.css';
 
 class SpendingEntry extends React.Component {
 
@@ -14,12 +15,43 @@ class SpendingEntry extends React.Component {
     }
     render() {
         const { spendingEntries } = this.props.spendingEntry;
-        console.log("Printing Spending Entries");
-        console.log(spendingEntries);
+        
         return (
             <>
-                <br />
-                <Button>Remove Item from Spending Entry</Button>
+                <Container className="spending-entry-container">
+                    <ListGroup>
+                        <TransitionGroup>
+                            {spendingEntries.map(({ _id, title, description, items }) => (
+                                <CSSTransition key={_id} timeout={500} classNames="fade">
+                                    <ListGroupItem className="spending-entry">
+                                        <Button
+                                            color="danger"
+                                            size="sm"
+                                            className="spending-entry-info"
+                                        >&times;</Button>{title}
+                                        <br />
+                                        <Button
+                                            color="danger"
+                                            size="sm"
+                                            className="spending-entry-info"
+                                        >&times;</Button>{description}
+                                        {items.map(({ _id, name, amount }) => (
+                                            <div key={_id}>
+                                                <Button
+                                                    color="secondary"
+                                                    size="sm"
+                                                    className="spending-entry-item"
+                                                >&times;</Button>
+                                                <span>{name}:</span>
+                                                <span className="item-amount">${amount}</span>
+                                            </div>
+                                        ))}
+                                    </ListGroupItem>
+                                </CSSTransition>
+                            ))}
+                        </TransitionGroup>
+                    </ListGroup>
+                </Container>
             </>
         );
     }
