@@ -14,7 +14,7 @@ class SpendingEntry extends React.Component {
         console.log(spendingEntries);
         return (
             <>
-                <h1>Testing testing</h1>
+                
             </>
         );
     }
