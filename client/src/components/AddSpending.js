@@ -11,8 +11,6 @@ import {
 
 import '../styling/AddSpending.css';
 
-import SpendingEntry from './SpendingEntry';
-
 class AddSpending extends React.Component {
     render() {
         return (
@@ -37,11 +35,11 @@ class AddSpending extends React.Component {
                             <Input className="add-spending-amount" type="password" name="password" id="examplePassword" placeholder="$" />
                         </Col>
                     </FormGroup>
+                    
                     <Button className="add-more-items-btn" color="primary">Add more Items</Button>
                     <Button className="add-category-btn" color="primary">Add a Category</Button>
                     <Button className="submit-new-spending-btn">Submit New Spending</Button>
                 </Form>
-                <SpendingEntry />
             </>
         );
     }

@@ -4,6 +4,7 @@ import store from './store';
 
 import NavigationBar from './components/NavigationBar';
 import AddSpending from './components/AddSpending';
+import SpendingEntry from './components/SpendingEntry';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <Provider store={store}>
           <div className="App">
             <NavigationBar />
+            <SpendingEntry />
             <AddSpending />
           </div>
         </Provider>

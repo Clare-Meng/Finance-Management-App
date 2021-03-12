@@ -1,7 +1,8 @@
-import { GET_SPENDING_ENTRIES } from '../actions/types';
+import { GET_SPENDING_ENTRIES, SPENDING_ENTRIES_LOADING } from '../actions/types';
 
 const initialState = {
-    spendingEntries: []
+    spendingEntries: [],
+    loading: false
 };
 
 export default function(state = initialState, action) {
@@ -9,8 +10,14 @@ export default function(state = initialState, action) {
         case GET_SPENDING_ENTRIES:
             return {
                 ...state,
-                spendingEntries: action.payload
+                spendingEntries: action.payload,
+                loading: false
             };
+        case SPENDING_ENTRIES_LOADING:
+            return {
+                ...state,
+                loading: true
+            }
         default:
             return state;
     }
