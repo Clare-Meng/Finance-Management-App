@@ -15,7 +15,7 @@ import {
   } from 'reactstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './NavigationBar.css';
+import '../styling/NavigationBar.css';
 
 class NavigationBar extends React.Component {
 

@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getSpendingEntries } from '../actions/spendingEntryActions';
 
+import { 
+    Button
+} from 'reactstrap';
+
 class SpendingEntry extends React.Component {
 
     componentDidMount() {
@@ -14,7 +18,8 @@ class SpendingEntry extends React.Component {
         console.log(spendingEntries);
         return (
             <>
-                
+                <br />
+                <Button>Remove Item from Spending Entry</Button>
             </>
         );
     }

@@ -9,8 +9,7 @@ import {
     FormText
 } from 'reactstrap';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './AddSpending.css';
+import '../styling/AddSpending.css';
 
 import SpendingEntry from './SpendingEntry';
 
