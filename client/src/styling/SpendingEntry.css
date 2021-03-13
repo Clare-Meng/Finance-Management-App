@@ -3,8 +3,8 @@
 }
 
 .spending-entry-container {
+    margin-left: 600px;
     margin-top: 50px;
-    margin-left: 850px;
 }
 
 .spending-entry-info {
@@ -20,4 +20,9 @@
 
 .item-amount {
     margin-left: 5px;
+}
+
+.spending-entry-description {
+    text-align: center;
+    font-size: 14px;
 }
