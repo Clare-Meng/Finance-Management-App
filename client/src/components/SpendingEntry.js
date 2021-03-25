@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getSpendingEntries } from '../actions/spendingEntryActions';
+import { getSpendingEntries, deleteSpendingEntry, deleteItem } from '../actions/spendingEntryActions';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
@@ -13,6 +13,16 @@ class SpendingEntry extends React.Component {
     componentDidMount() {
         this.props.getSpendingEntries();
     }
+
+    onClickDelete = (id) => {
+        this.props.deleteSpendingEntry(id);
+    };
+
+    onClickItemDelete = (id) => {
+        this.props.deleteItem(id);
+        this.props.getSpendingEntries();
+    };
+
     render() {
         const { spendingEntries } = this.props.spendingEntry;
         
@@ -28,24 +38,24 @@ class SpendingEntry extends React.Component {
                                             color="danger"
                                             size="sm"
                                             className="spending-entry-info"
+                                            onClick={this.onClickDelete.bind(this, _id)}
                                         >&times;</Button>{title}
-                                        <br />
-                                        <Button
-                                            color="danger"
-                                            size="sm"
-                                            className="spending-entry-info"
-                                        >&times;</Button>{description}
+                                        <div className="spending-entry-description">
+                                            {description}
+                                        </div>
+                                        
                                         {items.map(({ _id, name, amount }) => (
                                             <div key={_id}>
                                                 <Button
                                                     color="secondary"
                                                     size="sm"
                                                     className="spending-entry-item"
+                                                    onClick={this.onClickItemDelete.bind(this, _id)}
                                                 >&times;</Button>
                                                 <span>{name}:</span>
                                                 <span className="item-amount">${amount}</span>
                                             </div>
-                                        ))}
+                                        ))}      
                                     </ListGroupItem>
                                 </CSSTransition>
                             ))}
@@ -68,5 +78,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
     mapStateToProps,
-    { getSpendingEntries }
+    { getSpendingEntries, deleteSpendingEntry, deleteItem }
 )(SpendingEntry);

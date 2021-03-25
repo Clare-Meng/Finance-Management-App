@@ -13,8 +13,8 @@ class App extends Component {
         <Provider store={store}>
           <div className="App">
             <NavigationBar />
-            <SpendingEntry />
             <AddSpending />
+            <SpendingEntry />
           </div>
         </Provider>
       </>
