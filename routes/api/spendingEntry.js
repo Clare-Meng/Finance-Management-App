@@ -28,4 +28,13 @@ router.delete('/:id', (req, res) => {
         .catch(err => res.status(404).json({success: false}));
 });
 
+// DELETE api/spendingEntry/item/:id
+router.delete('/item/:id', (req, res) => {
+    SpendingEntry.updateMany(
+        { $pull: { items: { _id: req.params.id}}}
+    )
+    .then(SpendingEntry => res.json({success: true}))
+    .catch(err => res.status(404).json({success: false}));
+});
+
 module.exports = router;

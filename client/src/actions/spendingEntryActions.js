@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_SPENDING_ENTRIES, DELETE_SPENDING_ENTRY, SPENDING_ENTRIES_LOADING } from './types';
+import { GET_SPENDING_ENTRIES, DELETE_SPENDING_ENTRY, SPENDING_ENTRIES_LOADING, DELETE_ITEM } from './types';
 
 export const getSpendingEntries = () => dispatch => {
     dispatch(setSpendingEntriesLoading());
@@ -25,3 +25,12 @@ export const setSpendingEntriesLoading = () => {
         type: SPENDING_ENTRIES_LOADING
     }
 }
+
+export const deleteItem = (id) => dispatch => {
+    axios.delete(`/api/spendingEntry/item/${id}`).then(res =>
+        dispatch({
+            type: DELETE_ITEM,
+            payload: id
+        })
+    );
+};

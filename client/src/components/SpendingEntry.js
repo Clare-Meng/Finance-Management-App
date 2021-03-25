@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getSpendingEntries, deleteSpendingEntry } from '../actions/spendingEntryActions';
+import { getSpendingEntries, deleteSpendingEntry, deleteItem } from '../actions/spendingEntryActions';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
@@ -18,9 +18,13 @@ class SpendingEntry extends React.Component {
         this.props.deleteSpendingEntry(id);
     };
 
+    onClickItemDelete = (id) => {
+        this.props.deleteItem(id);
+        this.props.getSpendingEntries();
+    };
+
     render() {
         const { spendingEntries } = this.props.spendingEntry;
-        console.log(spendingEntries)
         
         return (
             <>
@@ -39,17 +43,19 @@ class SpendingEntry extends React.Component {
                                         <div className="spending-entry-description">
                                             {description}
                                         </div>
+                                        
                                         {items.map(({ _id, name, amount }) => (
                                             <div key={_id}>
                                                 <Button
                                                     color="secondary"
                                                     size="sm"
                                                     className="spending-entry-item"
+                                                    onClick={this.onClickItemDelete.bind(this, _id)}
                                                 >&times;</Button>
                                                 <span>{name}:</span>
                                                 <span className="item-amount">${amount}</span>
                                             </div>
-                                        ))}
+                                        ))}      
                                     </ListGroupItem>
                                 </CSSTransition>
                             ))}
@@ -72,5 +78,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
     mapStateToProps,
-    { getSpendingEntries, deleteSpendingEntry }
+    { getSpendingEntries, deleteSpendingEntry, deleteItem }
 )(SpendingEntry);
