@@ -35,7 +35,6 @@ class SpendingEntry extends React.Component {
                                 <CSSTransition key={_id} timeout={500} classNames="fade">
                                     <ListGroupItem className="spending-entry">
                                         <Button
-                                            color="danger"
                                             size="sm"
                                             className="spending-entry-info"
                                             onClick={this.onClickDelete.bind(this, _id)}
@@ -43,7 +42,6 @@ class SpendingEntry extends React.Component {
                                         <div className="spending-entry-description">
                                             {description}
                                         </div>
-                                        
                                         {items.map(({ _id, name, amount }) => (
                                             <div key={_id}>
                                                 <Button

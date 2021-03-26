@@ -10,12 +10,16 @@
 .spending-entry-info {
     margin-bottom: 10px;
     margin-right: 10px;
+    background-color: #993366;
+    border-color: #993366;
 }
 
 .spending-entry-item {
     margin-left: 38px;
     margin-bottom: 10px;
     margin-right: 10px;
+    background-color: #ff9966;
+    border-color: #ff9966;
 }
 
 .item-amount {
