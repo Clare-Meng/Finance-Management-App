@@ -1,4 +1,4 @@
-import { GET_SPENDING_ENTRIES, DELETE_SPENDING_ENTRY, SPENDING_ENTRIES_LOADING, DELETE_ITEM } from '../actions/types';
+import { GET_SPENDING_ENTRIES, DELETE_SPENDING_ENTRY, SPENDING_ENTRIES_LOADING, DELETE_ITEM, ADD_SPENDING_ENTRY } from '../actions/types';
 
 const initialState = {
     spendingEntries: [],
@@ -17,6 +17,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 spendingEntries: state.spendingEntries.filter(spendingEntry => spendingEntry._id !== action.payload)
+            };
+        case ADD_SPENDING_ENTRY:
+            return {
+                ...state,
+                spendingEntries: [action.payload, ...state.spendingEntries]
             };
         case DELETE_ITEM:
             return {

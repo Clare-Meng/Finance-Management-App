@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_SPENDING_ENTRIES, DELETE_SPENDING_ENTRY, SPENDING_ENTRIES_LOADING, DELETE_ITEM } from './types';
+import { GET_SPENDING_ENTRIES, DELETE_SPENDING_ENTRY, SPENDING_ENTRIES_LOADING, DELETE_ITEM, ADD_SPENDING_ENTRY } from './types';
 
 export const getSpendingEntries = () => dispatch => {
     dispatch(setSpendingEntriesLoading());
@@ -18,6 +18,15 @@ export const deleteSpendingEntry = (id) => dispatch => {
             payload: id
         })
     );
+};
+
+export const addSpendingEntry = (spendingEntry) => dispatch => {
+    axios
+        .post('/api/spendingEntry', spendingEntry)
+        .then(res => dispatch({
+            type: ADD_SPENDING_ENTRY,
+            payload: res.data
+        }))
 };
 
 export const setSpendingEntriesLoading = () => {

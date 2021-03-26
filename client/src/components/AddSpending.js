@@ -9,34 +9,170 @@ import {
     FormText
 } from 'reactstrap';
 
+import { connect } from 'react-redux';
+import { addSpendingEntry } from '../actions/spendingEntryActions';
+
 import '../styling/AddSpending.css';
 
 class AddSpending extends React.Component {
+
+    state = {
+        listTitle: false,
+        listDescription: false,
+        itemNameFirstEntry: false,
+        itemAmountFirstEntry: false,
+        itemNameSecondEntry: false,
+        itemAmountSecondEntry: false,
+        itemNameThirdEntry: false,
+        itemAmountThirdEntry: false
+    }
+
+    spendingEntrySubmit = (e) => {
+        e.preventDefault();
+        const items = [
+            {
+                name: this.state.itemNameFirstEntry,
+                amount: this.state.itemAmountFirstEntry
+            },
+            {
+                name: this.state.itemNameSecondEntry,
+                amount: this.state.itemAmountSecondEntry
+            },
+            {
+                name: this.state.itemNameThirdEntry,
+                amount: this.state.itemAmountThirdEntry
+            }
+        ]
+        const newSpendingEntry = {
+            title: this.state.listTitle,
+            description: this.state.listDescription,
+            items: items
+        }
+        this.props.addSpendingEntry(newSpendingEntry);
+    }
+
+    handleListTitleChange = (e) => {
+        e.preventDefault();
+        this.setState({
+            listTitle: e.target.value
+        });
+    }
+
+    handleListDescriptionChange = (e) => {
+        e.preventDefault();
+        this.setState({
+            listDescription: e.target.value
+        });
+    }
+
+    handleListItemNameChangeFirst = (e) => {
+        e.preventDefault();
+        this.setState({
+            itemNameFirstEntry: e.target.value
+        });
+    }
+
+    handleListItemAmountChangeFirst = (e) => {
+        e.preventDefault();
+        this.setState({
+            itemAmountFirstEntry: e.target.value
+        });
+    }
+
+    handleListItemNameChangeSecond = (e) => {
+        e.preventDefault();
+        this.setState({
+            itemNameSecondEntry: e.target.value
+        });
+    }
+
+    handleListItemAmountChangeSecond = (e) => {
+        e.preventDefault();
+        this.setState({
+            itemAmountSecondEntry: e.target.value
+        });
+    }
+
+    handleListItemNameChangeThird = (e) => {
+        e.preventDefault();
+        this.setState({
+            itemNameThirdEntry: e.target.value
+        });
+    }
+
+    handleListItemAmountChangeThird = (e) => {
+        e.preventDefault();
+        this.setState({
+            itemAmountThirdEntry: e.target.value
+        });
+    }
+
     render() {
         return (
             <>
-                <Form className="add-spending-form-container">
+                <Form className="add-spending-form-container" onSubmit={this.spendingEntrySubmit}>
                     <FormGroup row>
-                        <Label for="exampleEmail" sm={2}>List Title</Label>
+                        <Label sm={2}>List Title</Label>
                         <Col sm={10}>
-                            <Input type="email" name="email" id="exampleEmail" placeholder="Groceries" />
+                            <Input 
+                                placeholder="Groceries"
+                                onChange={this.handleListTitleChange} 
+                            />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Label for="examplePassword" sm={2}>List Description</Label>
+                        <Label sm={2}>List Description</Label>
                         <Col sm={10}>
-                            <Input type="password" name="password" id="examplePassword" placeholder="Weekly Grocery Run" />
+                            <Input 
+                                placeholder="Weekly Grocery Run"
+                                onChange={this.handleListDescriptionChange}
+                            />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Label for="examplePassword" sm={2}>Item Name and Amount</Label>
+                        <Label sm={2}>Item Name and Amount</Label>
                         <Col sm={10}>
-                            <Input type="password" name="password" id="examplePassword" placeholder="Apples" />
-                            <Input className="add-spending-amount" type="password" name="password" id="examplePassword" placeholder="$" />
+                            <Input 
+                                placeholder="Apples" 
+                                onChange={this.handleListItemNameChangeFirst}
+                            />
+                            <Input 
+                                className="add-spending-amount" 
+                                placeholder="$"
+                                onChange={this.handleListItemAmountChangeFirst} 
+                            />
                         </Col>
                     </FormGroup>
-                    
-                    <Button className="add-more-items-btn" color="primary">Add more Items</Button>
+                    <FormGroup row>
+                        <Col className="item-entry" sm={10}>
+                            <Input 
+                                placeholder="Oranges"
+                                onChange={this.handleListItemNameChangeSecond}
+                            />
+                            <Input 
+                                className="add-spending-amount" 
+                                placeholder="$"
+                                onChange={this.handleListItemAmountChangeSecond}
+                            />
+                        </Col>
+                    </FormGroup>
+                    <FormGroup row>
+                        <Col className="item-entry" sm={10}>
+                            <Input 
+                                placeholder="Peach"
+                                onChange={this.handleListItemNameChangeThird}
+                            />
+                            <Input 
+                                className="add-spending-amount" 
+                                placeholder="$"
+                                onChange={this.handleListItemAmountChangeThird}
+                            />
+                        </Col>
+                    </FormGroup>
+                    <Button 
+                        className="add-more-items-btn" 
+                        color="primary"
+                    >Add more Items</Button>
                     <Button className="add-category-btn" color="primary">Add a Category</Button>
                     <Button className="submit-new-spending-btn">Submit New Spending</Button>
                 </Form>
@@ -45,4 +181,11 @@ class AddSpending extends React.Component {
     }
 }
 
-export default AddSpending;
+const mapStateToProps = (state) => ({
+    
+});
+
+export default connect(
+    mapStateToProps,
+    { addSpendingEntry }
+)(AddSpending);
