@@ -28,7 +28,7 @@ class SpendingEntry extends React.Component {
         
         return (
             <>
-                <Container className="spending-entry-container">
+                <Container >
                     <ListGroup>
                         <TransitionGroup>
                             {spendingEntries.map(({ _id, title, description, items }) => (

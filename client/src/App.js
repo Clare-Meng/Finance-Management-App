@@ -6,6 +6,8 @@ import NavigationBar from './components/NavigationBar';
 import AddSpending from './components/AddSpending';
 import SpendingEntry from './components/SpendingEntry';
 
+import './styling/App.css';
+
 class App extends Component {
   render() {
     return (
@@ -13,8 +15,14 @@ class App extends Component {
         <Provider store={store}>
           <div className="App">
             <NavigationBar />
-            <AddSpending />
-            <SpendingEntry />
+            <div className="home-row">
+              <div className="home-col">
+                <AddSpending />
+              </div>
+              <div className="home-col">
+                <SpendingEntry />
+              </div>
+            </div>
           </div>
         </Provider>
       </>

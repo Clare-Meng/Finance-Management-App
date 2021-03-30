@@ -1,12 +1,6 @@
-/* Add Spending Form Container */
-.add-spending-form-container {
-    margin-top: 80px;
-    margin-left: 40px;
-}
-
 .form-control {
     margin-right: 0px;
-    width: 30%;
+    width: 80%;
 }
 
 /* Amount of spending added on form */
@@ -14,14 +8,10 @@
     margin-top: 15px;
 }
 
-/* Item name and amount styling */
-.item-entry {
-    margin-left: 293px;
-}
-
-/* Button to add more items */
-.add-more-items-btn {
-    margin-top: 10px;
+/* Buttons under new spending form submission*/
+.form-buttons {
+    margin-top: 50px;
+    margin-left: 220px;
 }
 
 /* Button to add a category */
