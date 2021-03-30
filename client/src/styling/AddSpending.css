@@ -1,11 +1,5 @@
 .form-control {
     margin-right: 0px;
-    width: 80%;
-}
-
-/* Amount of spending added on form */
-.add-spending-amount {
-    margin-top: 15px;
 }
 
 /* Buttons under new spending form submission*/
@@ -24,6 +18,6 @@
 /* Button to submit add new spending form*/
 .submit-new-spending-btn {
     margin-top: 20px;
-    margin-left: -20px;
+    margin-left: -23px;
 }
 
