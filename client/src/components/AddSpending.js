@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { 
+import {
+    Row,
     Col, 
     Button, 
     Form, 
@@ -111,66 +112,80 @@ class AddSpending extends React.Component {
         return (
             <>
                 <Form onSubmit={this.spendingEntrySubmit}>
-                    <FormGroup row>
-                        <Label sm={2}>List Title</Label>
-                        <Col sm={10}>
-                            <Input 
-                                placeholder="Groceries"
-                                onChange={this.handleListTitleChange} 
-                            />
-                        </Col>
+                    <FormGroup>
+                        <Label>List Title</Label>
+                        <Input 
+                            placeholder="Groceries"
+                            onChange={this.handleListTitleChange}
+                        />
                     </FormGroup>
-                    <FormGroup row>
-                        <Label sm={2}>List Description</Label>
-                        <Col sm={10}>
-                            <Input 
-                                placeholder="Weekly Grocery Run"
-                                onChange={this.handleListDescriptionChange}
-                            />
-                        </Col>
+                    <FormGroup>
+                        <Label>List Description</Label>
+                        <Input 
+                            placeholder="Weekly Grocery Run"
+                            onChange={this.handleListDescriptionChange}
+                        />
                     </FormGroup>
-                    <FormGroup row>
-                        <Label sm={2}>Item #1</Label>
-                        <Col sm={10}>
-                            <Input
-                                placeholder="Apples" 
-                                onChange={this.handleListItemNameChangeFirst}
-                            />
-                            <Input 
-                                className="add-spending-amount" 
-                                placeholder="$"
-                                onChange={this.handleListItemAmountChangeFirst} 
-                            />
+                    <Row form>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label>Item #1</Label>
+                                <Input 
+                                    placeholder="Apples"
+                                    onChange={this.handleListItemNameChangeFirst}
+                                />
+                            </FormGroup>
                         </Col>
-                    </FormGroup>
-                    <FormGroup row>
-                        <Label sm={2}>Item #2</Label>
-                        <Col sm={10}>
-                            <Input 
-                                placeholder="Oranges"
-                                onChange={this.handleListItemNameChangeSecond}
-                            />
-                            <Input 
-                                className="add-spending-amount" 
-                                placeholder="$"
-                                onChange={this.handleListItemAmountChangeSecond}
-                            />
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label>Amount</Label>
+                                <Input 
+                                    placeholder="$"
+                                    onChange={this.handleListItemAmountChangeFirst}
+                                />
+                            </FormGroup>
                         </Col>
-                    </FormGroup>
-                    <FormGroup row>
-                        <Label sm={2}>Item #3</Label>
-                        <Col sm={10}>
-                            <Input 
-                                placeholder="Peach"
-                                onChange={this.handleListItemNameChangeThird}
-                            />
-                            <Input 
-                                className="add-spending-amount" 
-                                placeholder="$"
-                                onChange={this.handleListItemAmountChangeThird}
-                            />
+                    </Row>
+                    <Row form>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label>Item #2</Label>
+                                <Input 
+                                    placeholder="Oranges"
+                                    onChange={this.handleListItemNameChangeSecond}
+                                />
+                            </FormGroup>
                         </Col>
-                    </FormGroup>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label>Amount</Label>
+                                <Input 
+                                    placeholder="$"
+                                    onChange={this.handleListItemAmountChangeSecond}
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row form>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label>Item #3</Label>
+                                <Input 
+                                    placeholder="Milk"
+                                    onChange={this.handleListItemNameChangeThird}
+                                />
+                            </FormGroup>
+                        </Col>
+                        <Col md={6}>
+                            <FormGroup>
+                                <Label>Amount</Label>
+                                <Input 
+                                    placeholder="$"
+                                    onChange={this.handleListItemAmountChangeThird}
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
                     <div className="form-buttons">
                         <Button
                             color="primary"
