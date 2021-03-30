@@ -110,7 +110,7 @@ class AddSpending extends React.Component {
     render() {
         return (
             <>
-                <Form className="add-spending-form-container" onSubmit={this.spendingEntrySubmit}>
+                <Form onSubmit={this.spendingEntrySubmit}>
                     <FormGroup row>
                         <Label sm={2}>List Title</Label>
                         <Col sm={10}>
@@ -130,9 +130,9 @@ class AddSpending extends React.Component {
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Label sm={2}>Item Name and Amount</Label>
+                        <Label sm={2}>Item #1</Label>
                         <Col sm={10}>
-                            <Input 
+                            <Input
                                 placeholder="Apples" 
                                 onChange={this.handleListItemNameChangeFirst}
                             />
@@ -144,7 +144,8 @@ class AddSpending extends React.Component {
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Col className="item-entry" sm={10}>
+                        <Label sm={2}>Item #2</Label>
+                        <Col sm={10}>
                             <Input 
                                 placeholder="Oranges"
                                 onChange={this.handleListItemNameChangeSecond}
@@ -157,7 +158,8 @@ class AddSpending extends React.Component {
                         </Col>
                     </FormGroup>
                     <FormGroup row>
-                        <Col className="item-entry" sm={10}>
+                        <Label sm={2}>Item #3</Label>
+                        <Col sm={10}>
                             <Input 
                                 placeholder="Peach"
                                 onChange={this.handleListItemNameChangeThird}
@@ -169,12 +171,13 @@ class AddSpending extends React.Component {
                             />
                         </Col>
                     </FormGroup>
-                    <Button 
-                        className="add-more-items-btn" 
-                        color="primary"
-                    >Add more Items</Button>
-                    <Button className="add-category-btn" color="primary">Add a Category</Button>
-                    <Button className="submit-new-spending-btn">Submit New Spending</Button>
+                    <div className="form-buttons">
+                        <Button
+                            color="primary"
+                        >Add more Items</Button>
+                        <Button className="add-category-btn" color="primary">Add a Category</Button>
+                        <Button className="submit-new-spending-btn">Submit New Spending</Button>
+                    </div>
                 </Form>
             </>
         );
