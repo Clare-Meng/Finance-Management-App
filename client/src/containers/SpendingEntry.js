@@ -7,10 +7,13 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 
 import '../styling/SpendingEntry.css';
 
-import { getSpendingEntries, deleteItem } from '../actions/spendingEntryActions';
+import { getSpendingEntries } from '../actions/spendingEntryActions';
+
 import { openDeleteSpendingEntryModal } from '../actions/deleteSpendingEntryModalActions';
+import { openDeleteItemModal } from '../actions/deleteItemModalActions';
 
 import DeleteSpendingEntryModal from './modals/DeleteSpendingEntryModal';
+import DeleteItemModal from './modals/DeleteItemModal';
 
 class SpendingEntry extends React.Component {
 
@@ -24,13 +27,14 @@ class SpendingEntry extends React.Component {
     };
 
     onClickItemDelete = (id) => {
-        this.props.deleteItem(id);
-        this.props.getSpendingEntries();
+        this.props.openDeleteItemModal();
+        this.itemID = id;
     };
 
     render() {
         const { spendingEntries } = this.props.spendingEntry;
         const { isDeleteSpendingEntryModalOpen } = this.props.isDeleteSpendingEntryModalOpen;
+        const { isDeleteItemModalOpen } = this.props.isDeleteItemModalOpen;
         
         return (
             <>
@@ -38,6 +42,10 @@ class SpendingEntry extends React.Component {
                     <DeleteSpendingEntryModal 
                         isDeleteSpendingEntryModalOpen={isDeleteSpendingEntryModalOpen}
                         spendingEntryID={this.spendingEntryID}
+                    />
+                    <DeleteItemModal
+                        isDeleteItemModalOpen={isDeleteItemModalOpen}
+                        itemID={this.itemID}
                     />
                     <ListGroup>
                         <TransitionGroup>
@@ -82,10 +90,11 @@ SpendingEntry.propTypes = {
 
 const mapStateToProps = (state) => ({
     spendingEntry: state.spendingEntry,
-    isDeleteSpendingEntryModalOpen: state.deleteSpendingEntryModal
+    isDeleteSpendingEntryModalOpen: state.deleteSpendingEntryModal,
+    isDeleteItemModalOpen: state.deleteItemModal
 });
 
 export default connect(
     mapStateToProps,
-    { getSpendingEntries, deleteItem, openDeleteSpendingEntryModal }
+    { getSpendingEntries, openDeleteSpendingEntryModal, openDeleteItemModal }
 )(SpendingEntry);

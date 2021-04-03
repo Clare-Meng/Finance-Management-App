@@ -1,0 +1,17 @@
+.delete-item-modal-title {
+    display: inline-block;
+    text-align: center;
+}
+
+.delete-item-modal-body {
+    text-align: center;
+}
+
+.delete-item-modal-close {
+    margin-top: 30px;
+}
+
+.delete-item-button {
+    margin-top: 30px;
+    margin-left: 50px;
+}
