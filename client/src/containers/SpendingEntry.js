@@ -7,7 +7,7 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 
 import '../styling/SpendingEntry.css';
 
-import { getSpendingEntries, deleteSpendingEntry, deleteItem } from '../actions/spendingEntryActions';
+import { getSpendingEntries, deleteItem } from '../actions/spendingEntryActions';
 import { openDeleteSpendingEntryModal } from '../actions/deleteSpendingEntryModalActions';
 
 import DeleteSpendingEntryModal from './modals/DeleteSpendingEntryModal';
@@ -21,7 +21,6 @@ class SpendingEntry extends React.Component {
     onClickDelete = (id) => {
         this.props.openDeleteSpendingEntryModal();
         this.spendingEntryID = id;
-        //this.props.deleteSpendingEntry(id);
     };
 
     onClickItemDelete = (id) => {
@@ -88,5 +87,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
     mapStateToProps,
-    { getSpendingEntries, deleteSpendingEntry, deleteItem, openDeleteSpendingEntryModal }
+    { getSpendingEntries, deleteItem, openDeleteSpendingEntryModal }
 )(SpendingEntry);

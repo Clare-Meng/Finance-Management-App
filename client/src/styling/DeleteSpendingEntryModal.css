@@ -1,0 +1,17 @@
+.delete-spending-entry-modal-title {
+    display: inline-block;
+    text-align: center;
+}
+
+.delete-spending-entry-modal-body {
+    text-align: center;
+}
+
+.delete-spending-entry-modal-close {
+    margin-top: 30px;
+}
+
+.delete-spending-entry-button {
+    margin-top: 30px;
+    margin-left: 50px;
+}

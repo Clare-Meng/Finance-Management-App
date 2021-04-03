@@ -7,10 +7,18 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { closeDeleteSpendingEntryModal } from '../../actions/deleteSpendingEntryModalActions';
+import { deleteSpendingEntry } from '../../actions/spendingEntryActions';
+
+import '../../styling/DeleteSpendingEntryModal.css';
 
 class DeleteSpendingEntryModal extends React.Component {
 
     onClickModalClose = () => {
+        this.props.closeDeleteSpendingEntryModal();
+    }
+
+    onDeleteSpendingEntryClick = () => {
+        this.props.deleteSpendingEntry(this.props.spendingEntryID);
         this.props.closeDeleteSpendingEntryModal();
     }
 
@@ -20,11 +28,22 @@ class DeleteSpendingEntryModal extends React.Component {
                 <Modal
                     isOpen={this.props.isDeleteSpendingEntryModalOpen}
                 >
-                    <ModalHeader>Modal Header</ModalHeader>
-                    <ModalBody>
-                        Modal Body
+                    <ModalHeader className="delete-spending-entry-modal-title">Delete Spending Entry</ModalHeader>
+                    <ModalBody className="delete-spending-entry-modal-body">
+                        Are you sure you want to delete this spending entry?
+                        <br />
+                        <Button 
+                            onClick={this.onClickModalClose}
+                            className="delete-spending-entry-modal-close"
+                        >
+                        Close</Button>
+                        <Button
+                            color="primary"
+                            className="delete-spending-entry-button"
+                            onClick={this.onDeleteSpendingEntryClick}
+                        >
+                        Delete</Button>
                     </ModalBody>
-                    <Button onClick={this.onClickModalClose}>Close</Button>
                 </Modal>
             </>
         );
@@ -37,5 +56,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
     mapStateToProps,
-    { closeDeleteSpendingEntryModal }
+    { closeDeleteSpendingEntryModal, deleteSpendingEntry }
 )(DeleteSpendingEntryModal);
