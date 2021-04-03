@@ -21,12 +21,12 @@ class SpendingEntry extends React.Component {
         this.props.getSpendingEntries();
     }
 
-    onClickDelete = (id) => {
+    onDeleteSpendingEntryButtonClick = (id) => {
         this.props.openDeleteSpendingEntryModal();
         this.spendingEntryID = id;
     };
 
-    onClickItemDelete = (id) => {
+    onDeleteItemButtonClick = (id) => {
         this.props.openDeleteItemModal();
         this.itemID = id;
     };
@@ -55,7 +55,7 @@ class SpendingEntry extends React.Component {
                                         <Button
                                             size="sm"
                                             className="spending-entry-info"
-                                            onClick={this.onClickDelete.bind(this, _id)}
+                                            onClick={this.onDeleteSpendingEntryButtonClick.bind(this, _id)}
                                         >&times;</Button>{title}
                                         <div className="spending-entry-description">
                                             {description}
@@ -66,7 +66,7 @@ class SpendingEntry extends React.Component {
                                                     color="secondary"
                                                     size="sm"
                                                     className="spending-entry-item"
-                                                    onClick={this.onClickItemDelete.bind(this, _id)}
+                                                    onClick={this.onDeleteItemButtonClick.bind(this, _id)}
                                                 >&times;</Button>
                                                 <span>{name}:</span>
                                                 <span className="item-amount">${amount}</span>

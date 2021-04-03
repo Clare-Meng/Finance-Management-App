@@ -13,7 +13,7 @@ import '../../styling/DeleteSpendingEntryModal.css';
 
 class DeleteSpendingEntryModal extends React.Component {
 
-    onClickDeleteSpendingEntryModalClose = () => {
+    onDeleteSpendingEntryModalCloseClick = () => {
         this.props.closeDeleteSpendingEntryModal();
     }
 
@@ -33,7 +33,7 @@ class DeleteSpendingEntryModal extends React.Component {
                         Are you sure you want to delete this spending entry?
                         <br />
                         <Button 
-                            onClick={this.onClickDeleteSpendingEntryModalClose}
+                            onClick={this.onDeleteSpendingEntryModalCloseClick}
                             className="delete-spending-entry-modal-close"
                         >
                         Close</Button>

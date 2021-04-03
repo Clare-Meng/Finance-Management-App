@@ -13,7 +13,7 @@ import '../../styling/DeleteItemModal.css';
 
 class DeleteItemModal extends React.Component {
 
-    onClickDeleteItemModalClose = () => {
+    onDeleteItemModalCloseClick = () => {
         this.props.closeDeleteItemModal();
     }
 
@@ -34,7 +34,7 @@ class DeleteItemModal extends React.Component {
                         Are you sure you want to delete this item?
                         <br />
                         <Button 
-                            onClick={this.onClickDeleteItemModalClose}
+                            onClick={this.onDeleteItemModalCloseClick}
                             className="delete-item-modal-close"
                         >Close</Button>
                         <Button
