@@ -138,7 +138,7 @@ class AddSpending extends React.Component {
                         </Col>
                         <Col md={6}>
                             <FormGroup>
-                                <Label>Amount</Label>
+                                <Label>Price</Label>
                                 <Input 
                                     placeholder="$"
                                     onChange={this.handleListItemAmountChangeFirst}
@@ -158,7 +158,7 @@ class AddSpending extends React.Component {
                         </Col>
                         <Col md={6}>
                             <FormGroup>
-                                <Label>Amount</Label>
+                                <Label>Price</Label>
                                 <Input 
                                     placeholder="$"
                                     onChange={this.handleListItemAmountChangeSecond}
@@ -178,7 +178,7 @@ class AddSpending extends React.Component {
                         </Col>
                         <Col md={6}>
                             <FormGroup>
-                                <Label>Amount</Label>
+                                <Label>Price</Label>
                                 <Input 
                                     placeholder="$"
                                     onChange={this.handleListItemAmountChangeThird}
