@@ -7,10 +7,13 @@ import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 
 import '../styling/SpendingEntry.css';
 
-import { getSpendingEntries, deleteItem } from '../actions/spendingEntryActions';
+import { getSpendingEntries } from '../actions/spendingEntryActions';
+
 import { openDeleteSpendingEntryModal } from '../actions/deleteSpendingEntryModalActions';
+import { openDeleteItemModal } from '../actions/deleteItemModalActions';
 
 import DeleteSpendingEntryModal from './modals/DeleteSpendingEntryModal';
+import DeleteItemModal from './modals/DeleteItemModal';
 
 class SpendingEntry extends React.Component {
 
@@ -18,19 +21,20 @@ class SpendingEntry extends React.Component {
         this.props.getSpendingEntries();
     }
 
-    onClickDelete = (id) => {
+    onDeleteSpendingEntryButtonClick = (id) => {
         this.props.openDeleteSpendingEntryModal();
         this.spendingEntryID = id;
     };
 
-    onClickItemDelete = (id) => {
-        this.props.deleteItem(id);
-        this.props.getSpendingEntries();
+    onDeleteItemButtonClick = (id) => {
+        this.props.openDeleteItemModal();
+        this.itemID = id;
     };
 
     render() {
         const { spendingEntries } = this.props.spendingEntry;
         const { isDeleteSpendingEntryModalOpen } = this.props.isDeleteSpendingEntryModalOpen;
+        const { isDeleteItemModalOpen } = this.props.isDeleteItemModalOpen;
         
         return (
             <>
@@ -38,6 +42,10 @@ class SpendingEntry extends React.Component {
                     <DeleteSpendingEntryModal 
                         isDeleteSpendingEntryModalOpen={isDeleteSpendingEntryModalOpen}
                         spendingEntryID={this.spendingEntryID}
+                    />
+                    <DeleteItemModal
+                        isDeleteItemModalOpen={isDeleteItemModalOpen}
+                        itemID={this.itemID}
                     />
                     <ListGroup>
                         <TransitionGroup>
@@ -47,7 +55,7 @@ class SpendingEntry extends React.Component {
                                         <Button
                                             size="sm"
                                             className="spending-entry-info"
-                                            onClick={this.onClickDelete.bind(this, _id)}
+                                            onClick={this.onDeleteSpendingEntryButtonClick.bind(this, _id)}
                                         >&times;</Button>{title}
                                         <div className="spending-entry-description">
                                             {description}
@@ -58,7 +66,7 @@ class SpendingEntry extends React.Component {
                                                     color="secondary"
                                                     size="sm"
                                                     className="spending-entry-item"
-                                                    onClick={this.onClickItemDelete.bind(this, _id)}
+                                                    onClick={this.onDeleteItemButtonClick.bind(this, _id)}
                                                 >&times;</Button>
                                                 <span>{name}:</span>
                                                 <span className="item-amount">${amount}</span>
@@ -82,10 +90,11 @@ SpendingEntry.propTypes = {
 
 const mapStateToProps = (state) => ({
     spendingEntry: state.spendingEntry,
-    isDeleteSpendingEntryModalOpen: state.deleteSpendingEntryModal
+    isDeleteSpendingEntryModalOpen: state.deleteSpendingEntryModal,
+    isDeleteItemModalOpen: state.deleteItemModal
 });
 
 export default connect(
     mapStateToProps,
-    { getSpendingEntries, deleteItem, openDeleteSpendingEntryModal }
+    { getSpendingEntries, openDeleteSpendingEntryModal, openDeleteItemModal }
 )(SpendingEntry);
