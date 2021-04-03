@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getSpendingEntries, deleteSpendingEntry, deleteItem } from '../actions/spendingEntryActions';
 
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 
 import '../styling/SpendingEntry.css';
+
+import { getSpendingEntries, deleteItem } from '../actions/spendingEntryActions';
+import { openDeleteSpendingEntryModal } from '../actions/deleteSpendingEntryModalActions';
+
+import DeleteSpendingEntryModal from './modals/DeleteSpendingEntryModal';
 
 class SpendingEntry extends React.Component {
 
@@ -15,7 +19,8 @@ class SpendingEntry extends React.Component {
     }
 
     onClickDelete = (id) => {
-        this.props.deleteSpendingEntry(id);
+        this.props.openDeleteSpendingEntryModal();
+        this.spendingEntryID = id;
     };
 
     onClickItemDelete = (id) => {
@@ -25,10 +30,15 @@ class SpendingEntry extends React.Component {
 
     render() {
         const { spendingEntries } = this.props.spendingEntry;
+        const { isDeleteSpendingEntryModalOpen } = this.props.isDeleteSpendingEntryModalOpen;
         
         return (
             <>
                 <Container >
+                    <DeleteSpendingEntryModal 
+                        isDeleteSpendingEntryModalOpen={isDeleteSpendingEntryModalOpen}
+                        spendingEntryID={this.spendingEntryID}
+                    />
                     <ListGroup>
                         <TransitionGroup>
                             {spendingEntries.map(({ _id, title, description, items }) => (
@@ -71,10 +81,11 @@ SpendingEntry.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    spendingEntry: state.spendingEntry
+    spendingEntry: state.spendingEntry,
+    isDeleteSpendingEntryModalOpen: state.deleteSpendingEntryModal
 });
 
 export default connect(
     mapStateToProps,
-    { getSpendingEntries, deleteSpendingEntry, deleteItem }
+    { getSpendingEntries, deleteItem, openDeleteSpendingEntryModal }
 )(SpendingEntry);

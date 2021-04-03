@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import NavigationBar from './components/NavigationBar';
-import AddSpending from './components/AddSpending';
-import SpendingEntry from './components/SpendingEntry';
+import AddSpending from './containers/AddSpending';
+import SpendingEntry from './containers/SpendingEntry';
 
 import './styling/App.css';
 
