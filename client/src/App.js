@@ -4,7 +4,7 @@ import store from './store';
 
 import NavigationBar from './components/NavigationBar';
 import SpendingEntry from './containers/SpendingEntry';
-import AddSpendingEntryButton from './containers/AddSpendingEntryButton';
+import HomepageJumbotron from './components/HomepageJumbotron';
 
 import './styling/App.css';
 
@@ -17,7 +17,7 @@ class App extends Component {
             <NavigationBar />
             <div className="home-row">
               <div className="home-col">
-                <AddSpendingEntryButton />
+                <HomepageJumbotron />
               </div>
               <div className="home-col">
                 <SpendingEntry />

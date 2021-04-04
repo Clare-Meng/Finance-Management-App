@@ -13,7 +13,6 @@ import '../styling/AddSpendingEntryButton.css';
 class AddSpendingEntryButton extends React.Component {
 
     onAddSpendingEntryButtonClick = () => {
-        console.log("HELLO WORLD");
         this.props.openAddSpendingEntryModal();
     }
 
