@@ -1,0 +1,14 @@
+.add-spending-entry-modal-container {
+    position: absolute;
+    margin-left: 160px;
+    width: 100%;
+}
+
+.add-spending-entry-modal-title {
+    display: inline-block;
+    text-align: center;
+}
+
+.add-spending-entry-modal-close {
+    margin-top: 30px;
+}

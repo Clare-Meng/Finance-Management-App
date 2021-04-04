@@ -3,8 +3,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import NavigationBar from './components/NavigationBar';
-import AddSpending from './containers/AddSpending';
 import SpendingEntry from './containers/SpendingEntry';
+import HomepageJumbotron from './components/HomepageJumbotron';
 
 import './styling/App.css';
 
@@ -13,11 +13,11 @@ class App extends Component {
     return (
       <>
         <Provider store={store}>
-          <div className="App">
+          <div>
             <NavigationBar />
             <div className="home-row">
               <div className="home-col">
-                <AddSpending />
+                <HomepageJumbotron />
               </div>
               <div className="home-col">
                 <SpendingEntry />
