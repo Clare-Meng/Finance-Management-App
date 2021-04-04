@@ -13,7 +13,7 @@ import {
 import { connect } from 'react-redux';
 import { addSpendingEntry } from '../actions/spendingEntryActions';
 
-import '../styling/AddSpending.css';
+import '../styling/AddSpendingEntryForm.css';
 
 class AddSpending extends React.Component {
 

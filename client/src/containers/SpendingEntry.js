@@ -38,7 +38,7 @@ class SpendingEntry extends React.Component {
         
         return (
             <>
-                <Container >
+                <Container>
                     <DeleteSpendingEntryModal 
                         isDeleteSpendingEntryModalOpen={isDeleteSpendingEntryModalOpen}
                         spendingEntryID={this.spendingEntryID}
