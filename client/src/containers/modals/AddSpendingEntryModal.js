@@ -23,7 +23,6 @@ class AddSpendingEntryModal extends React.Component {
             <>
                 <Modal
                     isOpen={this.props.isAddSpendingEntryModalOpen}
-                    className="add-spending-entry-modal-container"
                 >
                     <ModalHeader
                         className="add-spending-entry-modal-title"

@@ -18,7 +18,7 @@
 }
 
 .item-amount {
-    margin-left: 5px;
+    float: right;
 }
 
 .spending-entry-description {
