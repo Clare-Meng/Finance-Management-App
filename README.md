@@ -2,7 +2,7 @@
 
 Application for tracking monthly spendings and purchases. Contains an interactive UI for users to add purchases, delete items, and delete entire spending entries for a particular trip. 
 
-This application is created using the MERN stack.
+This application is created using the MERN stack. This project is still currently a work in progress.
 
 # Dependencies
 
