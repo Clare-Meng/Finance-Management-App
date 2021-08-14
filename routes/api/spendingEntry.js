@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
 
 // Spending Entry Model
 const SpendingEntry = require('../../models/SpendingEntry');
@@ -11,7 +12,8 @@ router.get('/', (req, res) => {
 });
 
 // POST api/spendingEntry
-router.post('/', (req, res) => {
+// Private
+router.post('/', auth, (req, res) => {
     const newSpendingEntry = new SpendingEntry({
         title: req.body.title,
         description: req.body.description,
@@ -22,7 +24,8 @@ router.post('/', (req, res) => {
 });
 
 // DELETE api/spendingEntry/:id
-router.delete('/:id', (req, res) => {
+// Private
+router.delete('/:id', auth, (req, res) => {
     SpendingEntry.findById(req.params.id)
         .then(SpendingEntry => SpendingEntry.remove().then(() => res.json({success: true})))
         .catch(err => res.status(404).json({success: false}));

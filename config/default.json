@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb://localhost:27017/finance_management",
+    "jwtSecret": "finance_management_app_my_jwt_secret"
+}
